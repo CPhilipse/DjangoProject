@@ -7,4 +7,7 @@ def home(request):
 
 
 def user(request):
-    return render(request, 'profile/profile.html')
+    users = User.objects.all()
+    context = { 'users': users }
+    # customer = Customer.objects.get(id=pk_test)
+    return render(request, 'profile/profile.html', context)
