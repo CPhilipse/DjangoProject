@@ -6,6 +6,18 @@
 </head>
 <body>
     <h1>Home page</h1>
-    <a href="/user/">User</a>
+    {% for article in articles %}
+        {% if article.category == 'cat' %}
+                <a style="color: mediumvioletred" href="/article/{{ article.id }}">
+                    <h4>{{ article.title }}</h4>
+                </a>
+                <hr>
+            {% else %}
+                <a href="/article/{{ article.id }}">
+                    <h4>{{ article.title }}</h4>
+                </a>
+                <hr>
+        {% endif %}
+    {% endfor %}
 </body>
 </html>

@@ -14,23 +14,23 @@ class User(models.Model):
 
 
 class Article(models.Model):
-    user_id = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField(max_length=255)
     body = models.TextField()
     category = models.CharField(max_length=200)
     created_at = models.DateTimeField(auto_now_add=True, null=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.title
 
 
 class Comment(models.Model):
-    user_id = models.ForeignKey(User, on_delete=models.CASCADE)
-    article_id = models.ForeignKey(Article, on_delete=models.CASCADE)
-    reply_id = models.IntegerField()
-    profile_id = models.IntegerField()
     comment = models.TextField(max_length=255)
     created_at = models.DateTimeField(auto_now_add=True, null=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    article = models.ForeignKey(Article, on_delete=models.CASCADE)
+    reply_id = models.IntegerField()
+    profile_id = models.IntegerField()
 
     def __str__(self):
         return self.comment
