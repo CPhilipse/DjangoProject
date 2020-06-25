@@ -7,9 +7,10 @@
 <body>
     <h1>Profile page</h1>
     <a href="/">Home</a>
-    {% for user in users %}
-        <h2>{{ user.name }}</h2>
-        <h3>{{ user.email }}</h3>
-    {% endfor %}
+    <h1>{{ current_user }}</h1>
+<!--    {% for user in users %}-->
+<!--        <h2>{{ user.name }}</h2>-->
+<!--        <h3>{{ user.email }}</h3>-->
+<!--    {% endfor %}-->
 </body>
 </html>

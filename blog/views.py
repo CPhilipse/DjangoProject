@@ -6,8 +6,8 @@ def home(request):
     return render(request, 'blog/home.html')
 
 
-def user(request):
+def user(request, user_id):
     users = User.objects.all()
-    context = { 'users': users }
-    # customer = Customer.objects.get(id=pk_test)
+    current_user = User.objects.get(id=user_id)
+    context = { 'users': users, 'current_user': current_user }
     return render(request, 'profile/profile.html', context)
