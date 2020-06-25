@@ -10,5 +10,10 @@
      <h1>{{ article.title }}</h1>
      <p>{{ article.body }}</p>
      <h5>{{ article.created_at }}</h5>
+    {% for comment in comments %}
+        <hr>
+        <h4>{{ comment }}</h4>
+        <h5>by {{ comment.author }}</h5>
+    {% endfor %}
 </body>
 </html>
